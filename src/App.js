@@ -33,6 +33,8 @@ class App extends Component{
       _title = this.state.nav[0].title;
       _desc = this.state.nav[0].desc;
     }
+    console.log('render', this) //render()함수 안에서 this는 컴포넌트 자신을 가리킨다.
+
     return(
       <div className="App">
         {/* <Subject 
@@ -41,9 +43,12 @@ class App extends Component{
         </Subject> */}
         <header> 
         <h1><a href="/" onClick={function(e){ //이 함수 안에서는 this가 컴포넌트 자기자신을 가리키지 않고, 아무값도 세팅되어있지 않다!
+          console.log('event in', this)  //bind(this) 안붙이면 undefined
+          e.preventDefault();
+          return;
+
           //이벤트 설치
           console.log(e)
-          e.preventDefault();
           this.state.mode = 'welcome'; //bind(this) 해주면 컴포넌트를 가리킨다.
           this.setState({  //state가 바뀌었을때 mode의 값을 변경해주고 싶다고 설정.
             mode:'welcome'
