@@ -41,13 +41,29 @@ class Article extends Component{
 
 //컴포넌트 만들기
 class App extends Component{
+  // 컴포넌트가 실행될때 constructor가 있으면 제일 먼저 실행되서, 초기화를 담당한다.
+  constructor(props){
+    super(props);
+    this.state = {
+      subject: {title:'WEB', sub:'World wide web!'},
+      nav: [
+        {id:1, title:'HTML', desc:'HTML is for information.'},
+        {id:2, title:'CSS', desc:'CSS is for design.'},
+        {id:3, title:'JAVASCRIPT', desc:'JAVASCRIPT is for interaction.'}
+      ],
+      article: {title:'HTML', desc:'HTML is ~~~~.'}
+    }
+  }
+
   render() {
     return(
       <div className="App">
-        <Subject title="WEB" sub="world wide web!"></Subject>
-        <Subject title="React" sub="For Ui!"></Subject> {/* 여러개 복사도 가능*/}
+        <Subject 
+          title={this.state.subject.title} 
+          sub={this.state.subject.sub}>
+        </Subject>
         <Nav></Nav>
-        <Article title="HTML" desc="HTML is ~~~."></Article>
+        <Article title={this.state.article.title} desc={this.state.article.desc}></Article>
       </div>  
     );
   }

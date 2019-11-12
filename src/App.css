@@ -1,3 +1,6 @@
 body{
   background-color: powderblue;
 }
+header{border: 1px solid #aaa;}
+nav{border: 1px solid #aaa;}
+article{border: 1px solid #aaa;}
